@@ -4,9 +4,6 @@ from dotenv import load_dotenv
 import discord
 from datetime import datetime
 from discord.ext import commands, tasks
-import help
-import pic
-import sounds
 load_dotenv()
 intents = discord.Intents.default()
 intents.message_content = True
@@ -14,10 +11,12 @@ intents.presences = True
 client = commands.Bot(command_prefix = "$" , intents=intents) ## префикс обязательно оставлять а то питон трахнет
 async def load_comms(): # команды, async нужон шобы бот не зависал пока ждёт ответа от одного чувака
     await client.load_extension("ping")
+    await client.load_extension("pic")
+    await client.load_extension("help")
     await client.tree.sync()
 client.setup_hook = load_comms
 
-ostalos = datetime(2026, 9, 29) # отсчёт до 29 сентября
+ostalos = datetime(2026, 12, 16) # отсчёт до 16 декабря
 
 @tasks.loop(hours=12)
 async def otchet():
