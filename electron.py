@@ -13,8 +13,8 @@ async def load_comms(): # команды, async нужон шобы бот не 
     await client.load_extension("ping")
     await client.load_extension("pic")
     await client.load_extension("help")
-    await client.load_extension("vote")
-    await client.load_extension("votestage1")
+    #await client.load_extension("vote")
+    #await client.load_extension("votestage1")
     await client.tree.sync()
 client.setup_hook = load_comms
 
@@ -30,5 +30,6 @@ async def otchet():
     await client.change_presence(activity=activity)
 @client.event
 async def on_ready():
-    otchet.start()
+    if not otchet.is_running(): # проверка запущен ли таймер в данный момент шобы ошибок при потери подключения не было
+        otchet.start()
 client.run(os.getenv("DISCORD_TOKEN"))
