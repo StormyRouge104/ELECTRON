@@ -33,7 +33,7 @@ async def setup (bot):
 # КОНЦОВКА
 
             # БЛОК СБОРА ССЫЛОК И ПЛЕЙЛИСТОВ, yt_dlp/ get_url, ПРЯМОЙ АУДИОПОТОК get_stream
-        d = {'format': 'bestaudio/best', 'extract_flat':True, 'cookiefile': 'cookies.txt', 'extractor_args': {'youtube': {'player_client': ['default', 'web_embedded']}}}
+        d = {'format': 'bestaudio/best', 'extract_flat':True, 'cookiefile': 'cookies.txt', 'extractor_args': {'youtube': {'player_client': ['web']}}}
         def get_url():
             try:
                 ydl = yt_dlp.YoutubeDL(d)
@@ -54,7 +54,7 @@ async def setup (bot):
             if not web_url.startswith("http"):
                 return web_url
             try:
-                youtuberdl= yt_dlp.YoutubeDL({'format': 'bestaudio/best', 'noplaylist':True, 'cookiefile': 'cookies.txt', 'extractor_args': {'youtube': {'player_client': ['default', 'web_embedded']}}})
+                youtuberdl= yt_dlp.YoutubeDL({'format': 'bestaudio/best', 'noplaylist':True, 'cookiefile': 'cookies.txt', 'extractor_args': {'youtube': {'player_client': ['web']}}})
                 info= youtuberdl.extract_info(web_url, download=False)
                 return info['url']
             except yt_dlp.utils.DownloadError as e:
