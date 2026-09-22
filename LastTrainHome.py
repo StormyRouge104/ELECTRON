@@ -54,7 +54,7 @@ async def setup (bot):
             if not web_url.startswith("http"):
                 return web_url
             try:
-                youtuberdl= yt_dlp.YoutubeDL({'format': 'bestaudio/best', 'noplaylist':True})
+                youtuberdl= yt_dlp.YoutubeDL({'format': 'bestaudio/best', 'noplaylist':True, 'cookiefile': 'cookies.txt'})
                 info= youtuberdl.extract_info(web_url, download=False)
                 return info['url']
             except yt_dlp.utils.DownloadError as e:
