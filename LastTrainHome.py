@@ -33,7 +33,7 @@ async def setup (bot):
 # КОНЦОВКА
 
             # БЛОК СБОРА ССЫЛОК И ПЛЕЙЛИСТОВ, yt_dlp/ get_url, ПРЯМОЙ АУДИОПОТОК get_stream
-        d = {'format': 'bestaudio/best', 'extract_flat':True}
+        d = {'format': 'bestaudio/best', 'extract_flat':True, 'cookiefile': 'cookies.txt'}
         def get_url():
             try:
                 ydl = yt_dlp.YoutubeDL(d)
