@@ -13,8 +13,9 @@ async def load_comms(): # команды, async нужон шобы бот не 
     await client.load_extension("ping")
     await client.load_extension("pic")
     await client.load_extension("help")
-    #await client.load_extension("vote")
+    await client.load_extension("vote")
     #await client.load_extension("votestage1")
+    await client.load_extension("LastTrainHome")
     await client.tree.sync()
 client.setup_hook = load_comms
 
