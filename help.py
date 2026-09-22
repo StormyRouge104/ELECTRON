@@ -1,6 +1,6 @@
 import discord
 from discord import app_commands
-class Golosovanie (discord.ui.Modal):# !!!!! ПЕРВЫЙ КЛАСС
+class Golosovanie (discord.ui.Modal):# !!!!! ПЕРВЫЙ КЛАСС (22.09.26 чё это нахуй должно значить?????)
     def __init__(self):
         super().__init__(title="Доложить о проблеме с ботом")
         self.sho = discord.ui.TextInput(label="шо случилось", style=discord.TextStyle.paragraph, placeholder="мразь бобейн сломал бота и музыка не робит")
